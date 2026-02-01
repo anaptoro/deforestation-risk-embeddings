@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data / outputs (don’t commit)
+data/
+outputs/
+models/*.json
+
+# OS / editors
+.DS_Store
+.vscode/

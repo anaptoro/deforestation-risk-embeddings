@@ -1,0 +1,7 @@
+jupyterlab
+numpy
+pandas
+scikit-learn
+matplotlib
+tqdm
+earthengine-api
