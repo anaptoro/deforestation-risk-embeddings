@@ -22,15 +22,16 @@ Outputs:
 ### 1) Build and start
 From the repo root:
 
-```bash
+```
 docker compose -f docker/docker-compose.yml up --build
+```
 
 ### **2) Authenticate**
-
+```
 python -c "import ee; ee.Authenticate(auth_mode='notebook'); ee.Initialize()"
-
+```
 ### **3) Export training and eval csvs**
-
+```
 PYTHONPATH=/app python scripts/export_samples_to_drive.py \
   --bbox=-63.5,-10.5,-61.5,-8.5 \
   --scale 500 \
@@ -39,18 +40,18 @@ PYTHONPATH=/app python scripts/export_samples_to_drive.py \
   --unbiased_year 2022 --n_unbiased 30000 \
   --prefix aef_v5 \
   --drive_folder deforestation-risk-exports
-
+```
 ### **4)Train logistic regression**
-
+```
 PYTHONPATH=/app python scripts/train_logit.py \
   --train_csv /app/data/aef_train_balanced_2018_2020_v5.csv \ 
   --unbiased_csv /app/data/aef_unbiased_forest_eval_2022_v5.csv \
   --train_years 2018,2019 \
   --test_year 2020 \
   --out_json models/logit_weights_v5.json
-
+```
 ### **5)Generate a full Earth Engine Code Editor URL (copy/paste)**
-
+```
 PYTHONPATH=/app python -m src.modeling.export_weights \
   --weights models/logit_weights_v5.json \
   --title "Risk66 logit v5" \
@@ -62,7 +63,7 @@ PYTHONPATH=/app python -m src.modeling.export_weights \
   --s2m1 7 --s2m2 9 --s2cloud 60 \
   --s2Years "2020,2021,2022,2023" \
   --print url
-
+```
 
 ### **6)Use in the Earth Engine Code Editor**
 
