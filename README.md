@@ -23,7 +23,8 @@ Outputs:
 From the repo root:
 
 ```
-docker compose -f docker/docker-compose.yml up --build
+docker compose -f docker/docker-compose.yml up -d --build
+
 ```
 
 ### **2) Authenticate**
