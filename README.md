@@ -25,10 +25,11 @@ From the repo root:
 ```bash
 docker compose -f docker/docker-compose.yml up --build
 
-### 2) Authenticate
+### **2) Authenticate**
+
 python -c "import ee; ee.Authenticate(auth_mode='notebook'); ee.Initialize()"
 
-### 3) Export training and eval csvs
+### **3) Export training and eval csvs**
 
 PYTHONPATH=/app python scripts/export_samples_to_drive.py \
   --bbox=-63.5,-10.5,-61.5,-8.5 \
@@ -39,7 +40,7 @@ PYTHONPATH=/app python scripts/export_samples_to_drive.py \
   --prefix aef_v5 \
   --drive_folder deforestation-risk-exports
 
-### 4)Train logistic regression
+### **4)Train logistic regression**
 
 PYTHONPATH=/app python scripts/train_logit.py \
   --train_csv /app/data/aef_train_balanced_2018_2020_v5.csv \ 
@@ -48,7 +49,7 @@ PYTHONPATH=/app python scripts/train_logit.py \
   --test_year 2020 \
   --out_json models/logit_weights_v5.json
 
-### 5)Generate a full Earth Engine Code Editor URL (copy/paste)
+### **5)Generate a full Earth Engine Code Editor URL (copy/paste)**
 
 PYTHONPATH=/app python -m src.modeling.export_weights \
   --weights models/logit_weights_v5.json \
@@ -63,7 +64,7 @@ PYTHONPATH=/app python -m src.modeling.export_weights \
   --print url
 
 
-### 6)Use in the Earth Engine Code Editor
+### **6)Use in the Earth Engine Code Editor**
 
 Open the Code Editor.
 
@@ -77,7 +78,7 @@ score/probability layers
 
 Sentinel-2 RGB composites for comparison
 
-### Follow this if you only want to load the results in gee
+### **Follow this if you only want to load the results in gee**
 
 Open the Earth Engine Code Editor
 Go to the Earth Engine Code Editor and create a new script.
