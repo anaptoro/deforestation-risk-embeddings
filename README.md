@@ -76,3 +76,20 @@ The script reads params from the URL fragment and renders:
 score/probability layers
 
 Sentinel-2 RGB composites for comparison
+
+### Follow this if you only want to load the results in gee
+
+Open the Earth Engine Code Editor
+Go to the Earth Engine Code Editor and create a new script.
+
+Paste the loader script
+Copy the contents of:
+
+gee/menagerie_loader.js
+
+…into the Code Editor.
+
+Paste the pre-generated URL in your browser
+
+Once the layers are loaded you can switch the parameters and play around to see how it goes
+
